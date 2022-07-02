@@ -1,0 +1,63 @@
+﻿@model WebProje.Models.Bill
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Bill</h4>
+    <hr />
+    <dl class="row container  w-100 justify-content-center">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BillDesc)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BillDesc)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BillAmount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BillAmount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BillStatus)
+        </dt>
+        <dd class="col-sm-10">
+            
+            @Html.DisplayFor(model => model.BillStatus)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BillDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BillDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Company)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Company.CompanyName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Users)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Users.Name)
+        </dd>
+    </dl>
+</div>
+<div>
+    @*@if (this.User.IsInRole("Admin"))
+    {
+        <a asp-action="Edit" asp-route-id="@Model.BillID">Edit</a>
+        <a asp-action="Index">Back to List</a>
+    }
+    else
+    {
+        <a asp-action="Pay">Pay</a>
+
+    }*@
+</div>

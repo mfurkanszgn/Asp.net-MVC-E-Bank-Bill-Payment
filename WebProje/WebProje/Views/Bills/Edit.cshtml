@@ -1,0 +1,63 @@
+﻿@model WebProje.Models.Bill
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<div class="container">
+    <h1>Edit</h1>
+
+    <h4>Bill</h4>
+    <hr />
+    <div class="row container  w-100 justify-content-center  ">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="BillID" />
+                <div class="form-group">
+                    <label asp-for="BillDesc" class="control-label"> Bill Description</label>
+                    <input asp-for="BillDesc" class="form-control  bg-gradient" />
+                    <span asp-validation-for="BillDesc" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="BillAmount" class="control-label"> Bill Amount</label>
+                    <input asp-for="BillAmount" class="form-control  bg-gradient" />
+                    <span asp-validation-for="BillAmount" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="BillStatus" /> @Html.DisplayNameFor(model => model.BillStatus)
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label asp-for="BillDate" class="control-label">Bill Date</label>
+                    <input asp-for="BillDate" class="form-control  bg-gradient" />
+                    <span asp-validation-for="BillDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CompanyID" class="control-label"> Company Name</label>
+                    <select asp-for="CompanyID" class="form-control  bg-gradient" asp-items="ViewBag.CompanyID"></select>
+                    <span asp-validation-for="CompanyID" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="UsersId" class="control-label"> User Name</label>
+                    <select asp-for="UsersId" class="form-control  bg-gradient" asp-items="ViewBag.UsersId"></select>
+                    <span asp-validation-for="UsersId" class="text-danger  bg-gradient"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

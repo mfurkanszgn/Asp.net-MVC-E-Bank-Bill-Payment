@@ -1,0 +1,43 @@
+﻿@model WebProje.Models.Transaction
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+
+<h4>Deposit</h4>
+<hr />
+
+<div class="row  container  w-100 justify-content-center">
+    <div class="col-md-4">
+        <form asp-action="Deposit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*<div class="form-group">
+                <label asp-for="TransactionType" class="control-label"></label>
+                <input asp-for="TransactionType" class="form-control" />
+                <span asp-validation-for="TransactionType" class="text-danger"></span>
+            </div>*@
+            <div class="form-group mt-3">
+                <label asp-for="TransactionAmount" class="control-label text-danger ">Deposit Amount </label>
+                <input asp-for="TransactionAmount" class="form-control bg-gradient" />
+                <span asp-validation-for="TransactionAmount" class="text-danger"></span>
+            </div>
+          
+            <div class="form-group mt-3">
+                <label asp-for="BankAccountID" class="control-label text-danger"> Bank Account Name</label>
+                <select asp-for="BankAccountID" class ="form-control bg-gradient" asp-items="ViewBag.BankAccountID"></select>
+            </div>
+            <div class="form-group  mt-3">
+                <input type="submit" id="bntadd" value="Add" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+}

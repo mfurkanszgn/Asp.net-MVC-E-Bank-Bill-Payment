@@ -1,0 +1,81 @@
+﻿
+@model WebProje.Models.Bill
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<div class="container">
+    <h1>Pay</h1>
+
+    <h4>Bill</h4>
+    <hr />
+    <div class="row container  w-100 justify-content-center bg-white ">
+        <div class="col-md-4 ">
+            <form asp-action="Pay" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="BillID" />
+                <div class="form-group d-flex flex-row justify-content-between">
+                    <div>
+                        <label asp-for="BillDesc" class="control-label"> Bill Description</label>
+                    </div>
+                    <div>
+                        <a asp-validation-for="BillDesc" class="text-danger form-control">@Model.BillDesc</a>
+                    </div>
+                </div>
+                <hr />
+                <div class="form-group d-flex flex-row justify-content-between">
+                    <div>
+                        <label asp-for="BillAmount" class="control-label"> Bill Amount</label>
+                    </div>
+                    @*<input asp-for="BillAmount" class="form-control  bg-gradient" />*@
+                    <div>
+                        <span asp-validation-for="BillAmount" class="text-danger form-control">$@Model.BillAmount</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <!--Burası degisecek burdan basla-->
+                    <label asp-for="BankAccountID" class="control-label"> Bank Account</label>
+                    <select asp-for="BankAccountID" class="form-control  bg-gradient" asp-items="ViewBag.BankAccount"></select>
+                    <span asp-validation-for="BankAccountID" class="text-danger"></span>
+
+                </div>
+                <div>
+                    <h5 class=" bg-gradient text-danger"> Fee Cost @ViewBag.Fee </h5>
+
+                </div>
+                <div class="form-group">
+                    
+                    <input type="submit" value="Pay" class="btn btn-primary" />
+                </div>
+                @*<div class="form-group form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" asp-for="BillStatus" /> @Html.DisplayNameFor(model => model.BillStatus)
+                        </label>
+                    </div>*@
+                @*<div class="form-group">
+                        <label asp-for="BillDate" class="control-label">Bill Date</label>
+                        <input asp-for="BillDate" class="form-control  bg-gradient" />
+                        <span asp-validation-for="BillDate" class="text-danger"></span>
+                    </div>*@
+
+                @*<div class="form-group">
+                        <label asp-for="UsersId" class="control-label"> User Name</label>
+                        <select asp-for="UsersId" class="form-control  bg-gradient" asp-items="ViewBag.UsersId"></select>
+                        <span asp-validation-for="UsersId" class="text-danger  bg-gradient"></span>
+                    </div>*@
+
+            </form>
+        </div>
+    </div>
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
